@@ -43,7 +43,7 @@ def register(request):
       hashed_pw = bcrypt.hashpw(password.encode(), bcrypt.gensalt()).decode()
       
       #create the user in db
-      User.objects.create(first_name=first_name, last_name=last_name, email=email, birthday=birthday, password=hashed_pw)
+      created_user = User.objects.create(first_name=first_name, last_name=last_name, email=email, birthday=birthday, password=hashed_pw)
       
       # once we create the user, we have the email from POST
       # log them in -> put in session
